@@ -41,6 +41,10 @@ CPMAddPackage(
 
 ####
 
+CPMAddBaseModule(imgui)
+
+####
+
 CPMAddPackage(
 	NAME implot
 	GITHUB_REPOSITORY epezent/implot
