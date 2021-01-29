@@ -207,8 +207,6 @@ target_link_libraries(imgui_addons PRIVATE cpm_runtime::imgui)
 target_include_directories(imgui_addons PUBLIC $<BUILD_INTERFACE:${STAGING_ROOT}/include>
 					$<INSTALL_INTERFACE:imgui_addons>)
 
-target_compile_definitions(imgui_addons PUBLIC SPDLOG_COMPILED_LIB SPDLOG_FMT_EXTERNAL)
-
 packageProject(
 	# the name of the target to export
 	NAME imgui_addons
