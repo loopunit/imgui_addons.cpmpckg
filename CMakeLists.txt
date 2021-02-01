@@ -23,7 +23,7 @@ if (NOT DEFINED CPM_SCRIPTS)
 	CPMAddPackage(
 	  NAME cpmpckg
 	  GITHUB_REPOSITORY loopunit/cpmpckg
-	  GIT_TAG 14513b5c30d605e882251d52a3c49d4204740b04
+	  GIT_TAG 2981a075e459f15f47c3d5110733478df862d483
 	  DOWNLOAD_ONLY true)
 
 	include(${cpmpckg_SOURCE_DIR}/cmake/add_cpm_module.cmake)
@@ -204,8 +204,10 @@ set_target_properties(imgui_addons PROPERTIES CXX_STANDARD 20)
 
 target_link_libraries(imgui_addons PRIVATE cpm_runtime::imgui)
 
-target_include_directories(imgui_addons PUBLIC $<BUILD_INTERFACE:${STAGING_ROOT}/include>
-					$<INSTALL_INTERFACE:imgui_addons>)
+target_include_directories(imgui_addons 
+	PUBLIC 
+		$<BUILD_INTERFACE:${STAGING_ROOT}/include>
+		$<INSTALL_INTERFACE:include>)
 
 packageProject(
 	# the name of the target to export
