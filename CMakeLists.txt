@@ -23,7 +23,7 @@ if (NOT DEFINED CPM_SCRIPTS)
 	CPMAddPackage(
 	  NAME cpmpckg
 	  GITHUB_REPOSITORY loopunit/cpmpckg
-	  GIT_TAG 9d5271a66365729b54588d166ec672d7db0a039c
+	  GIT_TAG 10daafe97294a85d6618266d08fbfaba27d5381f
 	  DOWNLOAD_ONLY true)
 
 	include(${cpmpckg_SOURCE_DIR}/cmake/add_cpm_module.cmake)
@@ -202,7 +202,7 @@ add_library(imgui_addons STATIC ${sources})
 
 set_target_properties(imgui_addons PROPERTIES CXX_STANDARD 20)
 
-target_link_libraries(imgui_addons PRIVATE cpm_runtime::imgui)
+target_link_libraries(imgui_addons PRIVATE cpm_install::imgui)
 
 target_include_directories(imgui_addons 
 	PUBLIC 
@@ -224,7 +224,7 @@ packageProject(
 	DEPENDENCIES ""
 )
 
-add_library(cpm_runtime::imgui_addons ALIAS imgui_addons)
+add_library(cpm_install::imgui_addons ALIAS imgui_addons)
 
 ################
 
@@ -245,5 +245,5 @@ if(IMGUI_BUILD_EXAMPLES)
 
 	target_link_libraries(imgui_addons_example
 		PUBLIC
-			cpm_runtime::imgui_app_fw imgui_addons)
+			cpm_install::imgui_app_fw imgui_addons)
 endif()
