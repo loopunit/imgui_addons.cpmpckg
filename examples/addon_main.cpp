@@ -1,3 +1,4 @@
+#include <mu_stdlib.h>
 #include <imgui_app_fw.h>
 #include <implot.h>
 #include <TextEditor.h>
