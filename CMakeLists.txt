@@ -224,7 +224,15 @@ packageProject(
 	DEPENDENCIES ""
 )
 
-add_library(cpm_install::imgui_addons ALIAS imgui_addons)
+if(MSVC)
+  if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+    set_target_properties(imgui_addons PROPERTIES IMPORTED_CONFIGURATIONS "Debug")
+    set_target_properties(imgui_addons PROPERTIES COMPILE_PDB_NAME imgui_addons COMPILE_PDB_OUTPUT_DIRECTORY "${CMAKE_INSTALL_PREFIX}/lib" )
+  elseif("${CMAKE_BUILD_TYPE}" STREQUAL "RelWithDebInfo")
+    set_target_properties(imgui_addons PROPERTIES IMPORTED_CONFIGURATIONS "RelWithDebInfo")
+    set_target_properties(imgui_addons PROPERTIES COMPILE_PDB_NAME imgui_addons COMPILE_PDB_OUTPUT_DIRECTORY "${CMAKE_INSTALL_PREFIX}/lib" )
+  endif()
+endif()
 
 ################
 
